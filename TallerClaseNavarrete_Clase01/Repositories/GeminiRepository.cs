@@ -35,7 +35,7 @@ namespace TallerClaseNavarrete_Clase01.Repositories
 
             message.Content = JsonContent.Create<GeminiRequest>(request);
             var response = await _httpClient.SendAsync(message);
-            string answer = await response.Content.ToString();
+            string answer = await response.Content.ReadAsStringAsync();
 
             return answer;
         }
