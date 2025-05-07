@@ -13,7 +13,7 @@ namespace TallerClaseNavarrete_Clase01.Repositories
         }
         public async Task<string> GetChatbotResponse(string prompt)
         {
-            string url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=GEMINI_API_KEY" + apiKey;
+            string url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey;
             HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, url);
 
             GeminiRequest request = new GeminiRequest
@@ -35,7 +35,7 @@ namespace TallerClaseNavarrete_Clase01.Repositories
 
             message.Content = JsonContent.Create<GeminiRequest>(request);
             var response = await _httpClient.SendAsync(message);
-            string answer = response.Content.ToString();
+            string answer = await response.Content.ToString();
 
             return answer;
         }
