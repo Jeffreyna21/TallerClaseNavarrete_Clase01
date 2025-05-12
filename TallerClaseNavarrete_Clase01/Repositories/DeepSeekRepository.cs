@@ -4,9 +4,9 @@ namespace TallerClaseNavarrete_Clase01.Repositories
 {
     public class DeepSeekRepository : IChatBotService
     {
-        public Task<string> GetChatbotResponse(string prompt)
+        public async Task<string> GetChatbotResponse(string prompt)
         {
-            throw new NotImplementedException();
+            return "Este es un string de Deep Seek";
         }
     }
 }
